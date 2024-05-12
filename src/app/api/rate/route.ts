@@ -5,6 +5,12 @@ export async function POST(req: NextRequest) {
   try {
     const { star, message } = await req.json();
 
+    if (star <= 0)
+      return res.json(
+        { success: false, message: "houmm kamu ngapain bang" },
+        { status: 400 }
+      );
+
     await db.rate.create({
       data: {
         star,

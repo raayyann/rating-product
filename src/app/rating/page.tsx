@@ -2,6 +2,8 @@ import Image from "next/image";
 import title from "../../../public/title.svg";
 import { db } from "../lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function Rating() {
   const rating = await db.rate.findMany({
     orderBy: [

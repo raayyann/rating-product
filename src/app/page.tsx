@@ -70,13 +70,17 @@ export default function Home() {
             onChange={(e) => setMessage(e.target.value)}
             value={message}
           ></textarea>
-          <button
-            className="py-2 mt-4 bg-[#bb521f] hover:bg-[#7f2f0c] text-white rounded-md shadow-md lg:w-1/2 xl:w-1/3 w-5/6 transition-colors"
-            onClick={handleSubmit}
-            disabled={loading}
-          >
-            Kirim
-          </button>
+          {loading ? (
+            <p className="mt-4 font-bold text-lg">mengirim... 🙃</p>
+          ) : (
+            <button
+              className="py-2 mt-4 bg-[#bb521f] hover:bg-[#7f2f0c] text-white rounded-md shadow-md lg:w-1/2 xl:w-1/3 w-5/6 transition-colors"
+              onClick={handleSubmit}
+              disabled={loading}
+            >
+              Kirim
+            </button>
+          )}
         </>
       )}
       <div className="text-sm opacity-75 absolute bottom-5">
